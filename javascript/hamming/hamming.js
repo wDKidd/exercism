@@ -1,11 +1,24 @@
-module.exports =
-  function hamDiff(a, b) {
+var hamDiff = function(a, b) {
+  var strandA = [],
+    strandB = [],
+    diff = 0;
 
-    //create two arrays from input of  'GGACG', 'GGTCG'
-    var strandA = [],
-      strandB = [];
+  if (a.length === b.length) {
+    for (var i = 0; i < a.length; i++) {
+      strandA.push(a[i]);
+      strandB.push(b[i]);
+    }
 
-    strandA.push(a);
-    strandB.push(b);
-
+    for (var i = 0; i < strandA.length; i++) {
+      if (strandA[i] !== strandB[i]) {
+        diff += 1;
+      }
+    }
+    return diff;
+    console.log(diff);
+  } else {
+    throw new Error('DNA strands must be of equal length.');
   }
+}
+
+exports.compute = hamDiff;
