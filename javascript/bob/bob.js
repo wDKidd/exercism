@@ -11,14 +11,8 @@ Bob.prototype.hey = function(input) {
 
   function isQuestion(i) {
 
-    var isUpper;
-    if (uppercase == inputValue) {
-      isUpper = true;
-    } else {
-      isUpper = false;
-    }
     var last = i.length - 1;
-    if (i.charAt(last) == '?' && isUpper === false) {
+    if (i.charAt(last) == '?' && upperCase(i) == false) {
       return true;
     } else {
       return false;
