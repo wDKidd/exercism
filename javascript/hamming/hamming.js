@@ -15,7 +15,6 @@ var hamDiff = function(a, b) {
       }
     }
     return diff;
-    console.log(diff);
   } else {
     throw new Error('DNA strands must be of equal length.');
   }
