@@ -1,13 +1,10 @@
 function wordCounter(theString) {
 
-  function splitString(theString) {
-    var arrayKey = theString.split(" ");
+  var arrayKey = theString.split(" ");
 
-    for (var i = 0; i < arrayKey.length; i++) {
-      console.log(arrayKey[i] + " " + (i + 1));
-    }
+  for (var i = 0; i < arrayKey.length; i++) {
+    console.log(arrayKey[i]);
   }
-  splitString(theString)
 }
 
 module.exports = wordCounter;
