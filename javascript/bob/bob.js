@@ -1,59 +1,24 @@
-//
-// This is only a SKELETON file for the "Bob" exercise. It's been provided as a
-// convenience to get you started writing code faster.
-//
-
 var Bob = function() {};
 
 Bob.prototype.hey = function(input) {
-  var uppercase = input.valueOf().toUpperCase(),
-    inputValue = input.valueOf();
 
-  function isQuestion(i) {
-
-    var last = i.length - 1;
-    if (i.charAt(last) == '?' && upperCase(i) == false) {
-      return true;
-    } else {
-      return false;
-    }
+  function question(i) {
+    return i.charAt(i.length - 1) == '?' && shouting(i) !== true;
   }
 
-  function allNumbers(i) {
-    isNumbers = parseInt(i);
-    if (isNumbers) {
-      input = i.toLowerCase()
-      return true;
-    } else {
-      return false;
-    }
+  function shouting(i) {
+    return i == i.toUpperCase() && i.toLowerCase() != i;
   }
 
-  function upperCase(i) {
-    if (uppercase == inputValue) {
-      return true;
-    }
+  function silence(i) {
+    return /^\s*$/.test(input);
   }
 
-  function onlyCharacters(i) {
-    var regexChars = new RegExp('([A-Za-z0-9-]+)', 'i'),
-      isEmpty = regexChars.exec(i);
-    if (isEmpty != null) {
-      return true;
-    } else
-      return false;
-  }
-
-  var isUpper = upperCase(input),
-    question = isQuestion(input),
-    onlyNumbers = allNumbers(input),
-    notEmpty = onlyCharacters(input);
-
-  if (question == true) {
+  if (question(input)) {
     return 'Sure.';
-  } else if (isUpper === true && notEmpty == true) {
+  } else if (shouting(input)) {
     return 'Whoa, chill out!';
-  } else if (notEmpty == false) {
+  } else if (silence(input)) {
     return 'Fine. Be that way!';
   } else {
     return 'Whatever.';
